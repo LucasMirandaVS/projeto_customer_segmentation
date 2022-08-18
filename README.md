@@ -1,2 +1,2 @@
-# projeto_previsao_de_precos
-Prevendo o preço de ações de empresas usando séries temporais.
+# Segmentação de Clientes
+Realizando a identificação de segmentos de clientes usando K Means.
