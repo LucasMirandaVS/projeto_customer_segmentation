@@ -1,2 +1,2 @@
 # Segmentação de Clientes
-Realizando a identificação de segmentos de clientes usando K Means.
+Aplicando tencicas de análise e exploração de dados para identificar diferentes segmentos de clientes.
