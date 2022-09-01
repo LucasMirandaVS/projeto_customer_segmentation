@@ -4,11 +4,10 @@
 library(readr)
 library(tidyverse)
 library(lubridate)
-library(NbClust)
 
 # Importando os dados
-dados_clientes <- read_csv("C:/Users/Lucas/Desktop/Case - Numera/dados_clientes.csv")
-eventos_ofertas <- read_csv("C:/Users/Lucas/Desktop/Case - Numera/eventos_ofertas.csv")
+dados_clientes <- read_csv("C:/Users/Lucas/Desktop/dados_clientes.csv")
+eventos_ofertas <- read_csv("C:/Users/Lucas/Desktop/eventos_ofertas.csv")
 #####
 
 ## Data Preparation
@@ -171,8 +170,8 @@ rfm_df$Segment <- '0'
 rfm_df$Segment[which(rfm_df$groupRFM %in% c(554,544, 543, 445, 552, 551, 544, 542, 541, 535, 534, 533, 532, 531, 525, 524, 523, 522, 521,444,434,443, 344, 442, 244, 424, 441  ))] <- "Clientes Leais"
 rfm_df$Segment[which(rfm_df$groupRFM %in% c(332,333,342, 343, 334, 412,413,414,431,432,441,421,422,423, 424, 433 ,233,234, 241,311, 312, 313,314,321,322,323,324, 331,  341))] <- "Promissores"
 rfm_df$Segment[which(rfm_df$groupRFM %in% c(124, 133, 134, 142, 143, 144, 214,224,234, 242, 243, 232 ))] <- "Hesitantes"
-rfm_df$Segment[which(rfm_df$groupRFM %in% c(122, 123,131 ,132, 141, 212, 213, 221, 222, 223, 231 ))] <- "Necessita atenção"
-rfm_df$Segment[which(rfm_df$groupRFM %in% c(111, 112, 113, 114, 121, 131, 211, 311, 411, 511 ))] <-"Oferecer mais promoções"
+rfm_df$Segment[which(rfm_df$groupRFM %in% c(122, 123,131 ,132, 141, 212, 213, 221, 222, 223, 231 ))] <- "Necessita atenÃ§Ã£o"
+rfm_df$Segment[which(rfm_df$groupRFM %in% c(111, 112, 113, 114, 121, 131, 211, 311, 411, 511 ))] <-"Oferecer mais promoÃ§Ãµes"
 
 # Visualizando os segmentos
 table(rfm_df$Segment)
