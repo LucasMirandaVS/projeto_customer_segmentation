@@ -1,7 +1,6 @@
-# Setando o diretÛrio
-setwd("C:/Users/Lucas/Desktop/Case - Numera")
 
-dados_clientes <- read_csv("C:/Users/Lucas/Desktop/Case - Numera/dados_clientes.csv")
+
+dados_clientes <- read_csv("C:/Users/Lucas/Desktop/dados_clientes.csv")
 
 # Analizando por grupos de ano
 df_Clientes <- dados_clientes %>%
@@ -21,8 +20,8 @@ group1 %>% filter_all(any_vars(. %in% c(101))) # so 1
 
 group1 %>% filter(idade > 90) # 28
 
-#### An·lise univariada
-### Vari·veis categÛricas
+#### An√°lise univariada
+### Vari√°veis categ√≥ricas
 # Genero
 # bar plot das idades
 a = table(group1$genero)
@@ -30,7 +29,7 @@ barplot(a, main="Generos dos clientes",
         ylab="Contagem",
         xlab="Genero",
         col = c('blue', 'red', 'yellow'))
-# A maior parte da amostra È constituÌda por homens
+# A maior parte da amostra √© constitu√≠da por homens
 
 # pie chart do genero
 group1 %>% 
@@ -39,12 +38,12 @@ group1 %>%
   pie(col = hcl.colors(length(table(group1$genero)),
                        "BluYl"))
 
-## Vari·veis NumÈricas 
+## Vari√°veis Num√©ricas 
 # Idade
 # boxplot da Idade dos clientes
 boxplot(group1$idade, horizontal = TRUE,
         col = 'purple', main = 'Idade dos clientes')
-# a maioria dos clientes est· entre 40 e poucos e 60 e poucos anos
+# a maioria dos clientes est√° entre 40 e poucos e 60 e poucos anos
 
 # Histograma das idades dos clientes
 hist(group1$idade,
@@ -53,9 +52,9 @@ hist(group1$idade,
      xlab="Idade",
      ylab="Frequencia",
      labels=TRUE) 
-# apesar da mÈdia da coluna cliente ja estar acima dos 40 anos,
+# apesar da m√©dia da coluna cliente ja estar acima dos 40 anos,
 # tem muita gente acima de 80
-# aparenta ser uma distribuiÁ„o normal
+# aparenta ser uma distribui√ß√£o normal
 
 # Renda
 # Histograma da renda dos clientes
@@ -65,14 +64,14 @@ hist(group1$renda_anual,
      xlab="Renda Anual",
      ylab="Frequencia",
      labels=TRUE)
-# Parece haver uma concentraÁ„o maior de clientes entre 50 e 70k
+# Parece haver uma concentra√ß√£o maior de clientes entre 50 e 70k
 
 # Box plot da renda dos clientes
 boxplot(group1$renda_anual, horizontal = TRUE,
         col = 'dark green', main = 'Renda anual dos clientes') 
-# De fato a mÈdia de renda est· entre 50 e 70k e alguns outliers
+# De fato a m√©dia de renda est√° entre 50 e 70k e alguns outliers
 
-### An·lise bivariada
+### An√°lise bivariada
 ## genero x idade
 # Avaliando as idades de acordo com o genero
 ggplot(group1) + 
@@ -80,7 +79,7 @@ ggplot(group1) +
   geom_bar() + 
   theme_light() +
   labs(title = 'Idade de acordo com o genero')
-# h· uma quantidade maior de homens
+# h√° uma quantidade maior de homens
 
 # density plot
 ggplot(group1)+
@@ -88,7 +87,7 @@ ggplot(group1)+
   geom_density(position = 'identity', alpha = 0.5)+
   theme_light()+
   labs(title = 'Idade dos clientes de acordo com o genero')
-# As mulheres s„o em mÈdia um pouco mais velhas que os homens
+# As mulheres s√£o em m√©dia um pouco mais velhas que os homens
 # Ha mais homens jovens que mulheres
 
 ## genero x renda anual
@@ -106,8 +105,8 @@ ggplot(group1)+
   geom_density(position = 'identity', alpha = 0.5)+
   theme_light()+
   labs(title = 'Renda anual de acordo com o genero')
-# A maior parte dos homens ganha atÈ 75k anual
-# h· mais mulheres ganhando mais de 75k do que homens
+# A maior parte dos homens ganha at√© 75k anual
+# h√° mais mulheres ganhando mais de 75k do que homens
 
 ## genero x tempo como membro
 # Bar plot
@@ -124,7 +123,7 @@ ggplot(group1)+
   geom_density(position = 'identity', alpha = 0.5)+
   theme_light()+
   labs(title = 'Tempo de fidelidade de acordo com o genero')
-# De fato haviam mais homens nos primeiros anos e em 2016 o cen·rio mudou
+# De fato haviam mais homens nos primeiros anos e em 2016 o cen√°rio mudou
 
 ## Idade x Renda
 ggplot(group1, 
@@ -133,10 +132,10 @@ ggplot(group1,
   geom_point() +
   geom_point(color= "indianred3") +
   geom_smooth(method = "lm")
-# Repete o padr„o dos outros anos
+# Repete o padr√£o dos outros anos
 
 
-# analisando a correlaÁ„o entre renda e idade
+# analisando a correla√ß√£o entre renda e idade
 df_num <- group1 %>%
   select_if(is.numeric)
 
@@ -145,7 +144,7 @@ mcor <- cor(df_num)
 # Corr plot
 corrplot(mcor, method = "color", type = "lower", tl.col = "black", tl.srt = 45,
          addCoef.col = "black", tl.cex = 0.7, number.cex = 0.7)
-# correlaÁ„o positiva, como esperado
+# correla√ß√£o positiva, como esperado
 # Covariancia
 print(cov(group1$idade,
           group1$renda_anual, method = "spearman")) 
@@ -181,8 +180,8 @@ group2 %>% filter_all(any_vars(. %in% c(101))) # 4
 
 group2 %>% filter(idade > 90) # 144
 
-#### An·lise univariada
-### Vari·veis categÛricas
+#### An√°lise univariada
+### Vari√°veis categ√≥ricas
 # Genero
 # bar plot das idades
 a = table(group2$genero)
@@ -190,7 +189,7 @@ barplot(a, main="Generos dos clientes",
         ylab="Contagem",
         xlab="Genero",
         col = c('blue', 'red', 'yellow'))
-# A diferenÁa entre homens e mulheres È a menor
+# A diferen√ßa entre homens e mulheres √© a menor
 
 # pie chart do genero
 group2 %>% 
@@ -199,12 +198,12 @@ group2 %>%
   pie(col = hcl.colors(length(table(group2$genero)),
                        "BluYl"))
 
-## Vari·veis NumÈricas 
+## Vari√°veis Num√©ricas 
 # Idade
 # boxplot da Idade dos clientes
 boxplot(group2$idade, horizontal = TRUE,
         col = 'purple', main = 'Idade dos clientes')
-# a maioria dos clientes est· entre 40 e poucos e 60 e poucos anos
+# a maioria dos clientes est√° entre 40 e poucos e 60 e poucos anos
 
 # Histograma das idades dos clientes
 hist(group2$idade,
@@ -213,7 +212,7 @@ hist(group2$idade,
      xlab="Idade",
      ylab="Frequencia",
      labels=TRUE) 
-# a mesma distribuiÁ„o do grupo completo e do grupo1
+# a mesma distribui√ß√£o do grupo completo e do grupo1
 
 # Renda
 # Histograma da renda dos clientes
@@ -227,9 +226,9 @@ hist(group2$renda_anual,
 # Box plot da renda dos clientes
 boxplot(group2$renda_anual, horizontal = TRUE,
         col = 'dark green', main = 'Renda anual dos clientes') 
-# MÈdia mais concentrada entre 50 e poucos e 80 e poucos
+# M√©dia mais concentrada entre 50 e poucos e 80 e poucos
 
-### An·lise bivariada
+### An√°lise bivariada
 ## genero x idade
 # Avaliando as idades de acordo com o genero
 ggplot(group2) + 
@@ -237,7 +236,7 @@ ggplot(group2) +
   geom_bar() + 
   theme_light() +
   labs(title = 'Idade de acordo com o genero')
-# h· uma quantidade maior de homens
+# h√° uma quantidade maior de homens
 
 # density plot
 ggplot(group2)+
@@ -245,7 +244,7 @@ ggplot(group2)+
   geom_density(position = 'identity', alpha = 0.5)+
   theme_light()+
   labs(title = 'Idade dos clientes de acordo com o genero')
-# As mulheres s„o em mÈdia um pouco mais velhas que os homens
+# As mulheres s√£o em m√©dia um pouco mais velhas que os homens
 # Ha mais homens jovens que mulheres
 
 ## genero x renda anual
@@ -263,8 +262,8 @@ ggplot(group2)+
   geom_density(position = 'identity', alpha = 0.5)+
   theme_light()+
   labs(title = 'Renda anual de acordo com o genero')
-# A maior parte dos homens ganha atÈ 75k anual
-# h· mais mulheres ganhando mais de 75k do que homens
+# A maior parte dos homens ganha at√© 75k anual
+# h√° mais mulheres ganhando mais de 75k do que homens
 
 ## genero x tempo como membro
 # Bar plot
@@ -290,10 +289,10 @@ ggplot(group2,
   geom_point() +
   geom_point(color= "indianred3") +
   geom_smooth(method = "lm")
-# Repete o padr„o dos outros anos
+# Repete o padr√£o dos outros anos
 
 
-# analisando a correlaÁ„o entre renda e idade
+# analisando a correla√ß√£o entre renda e idade
 df_num <- group2 %>%
   select_if(is.numeric)
 
@@ -302,7 +301,7 @@ mcor <- cor(df_num)
 # Corr plot
 corrplot(mcor, method = "color", type = "lower", tl.col = "black", tl.srt = 45,
          addCoef.col = "black", tl.cex = 0.7, number.cex = 0.7)
-# correlaÁ„o positiva, como esperado
+# correla√ß√£o positiva, como esperado
 # Covariancia
 print(cov(group2$idade,
           group2$renda_anual, method = "spearman")) 
@@ -323,7 +322,7 @@ ggplot(group2,
   geom_point() +
   geom_point(color= "indianred3") +
   geom_smooth(method = "lm")
-# uma correlaÁ„o negativa entre a renda e o empo de fidelidade
+# uma correla√ß√£o negativa entre a renda e o empo de fidelidade
 
 #####
 group3 <- df_Clientes %>%
@@ -338,8 +337,8 @@ group3 %>% filter_all(any_vars(. %in% c(101))) # nenhum
 
 group3 %>% filter(idade > 90) # 47
 
-#### An·lise univariada
-### Vari·veis categÛricas
+#### An√°lise univariada
+### Vari√°veis categ√≥ricas
 # Genero
 # bar plot das idades
 a = table(group3$genero)
@@ -355,12 +354,12 @@ group3 %>%
   pie(col = hcl.colors(length(table(group3$genero)),
                        "BluYl"))
 
-## Vari·veis NumÈricas 
+## Vari√°veis Num√©ricas 
 # Idade
 # boxplot da Idade dos clientes
 boxplot(group3$idade, horizontal = TRUE,
         col = 'purple', main = 'Idade dos clientes')
-# a maioria dos clientes est· entre 40 e poucos e 60 e poucos anos
+# a maioria dos clientes est√° entre 40 e poucos e 60 e poucos anos
 
 # Histograma das idades dos clientes
 hist(group3$idade,
@@ -369,7 +368,7 @@ hist(group3$idade,
      xlab="Idade",
      ylab="Frequencia",
      labels=TRUE) 
-# a mesma distribuiÁ„o do grupo completo e do grupo1
+# a mesma distribui√ß√£o do grupo completo e do grupo1
 
 # Renda
 # Histograma da renda dos clientes
@@ -383,9 +382,9 @@ hist(group3$renda_anual,
 # Box plot da renda dos clientes
 boxplot(group3$renda_anual, horizontal = TRUE,
         col = 'dark green', main = 'Renda anual dos clientes') 
-# MÈdia mais concentrada entre 40 e poucos e 70 e poucos com alguns outliers
+# M√©dia mais concentrada entre 40 e poucos e 70 e poucos com alguns outliers
 
-### An·lise bivariada
+### An√°lise bivariada
 ## genero x idade
 # Avaliando as idades de acordo com o genero
 ggplot(group3) + 
@@ -393,7 +392,7 @@ ggplot(group3) +
   geom_bar() + 
   theme_light() +
   labs(title = 'Idade de acordo com o genero')
-# h· uma quantidade maior de homens
+# h√° uma quantidade maior de homens
 
 # density plot
 ggplot(group3)+
@@ -402,7 +401,7 @@ ggplot(group3)+
   theme_light()+
   labs(title = 'Idade dos clientes de acordo com o genero')
 # Ha mais homens jovens que mulheres
-# H· uma concentraÁ„o maior de mulheres entre 40 e 70 anos
+# H√° uma concentra√ß√£o maior de mulheres entre 40 e 70 anos
 
 ## genero x renda anual
 # Avaliando a renda anual de acordo com o genero
@@ -444,10 +443,10 @@ ggplot(group3,
   geom_point() +
   geom_point(color= "indianred3") +
   geom_smooth(method = "lm")
-# Repete o padr„o dos outros anos
+# Repete o padr√£o dos outros anos
 
 
-# analisando a correlaÁ„o entre renda e idade
+# analisando a correla√ß√£o entre renda e idade
 df_num <- group3 %>%
   select_if(is.numeric)
 
@@ -456,7 +455,7 @@ mcor <- cor(df_num)
 # Corr plot
 corrplot(mcor, method = "color", type = "lower", tl.col = "black", tl.srt = 45,
          addCoef.col = "black", tl.cex = 0.7, number.cex = 0.7)
-# correlaÁ„o positiva, como esperado
+# correla√ß√£o positiva, como esperado
 # Covariancia
 print(cov(group3$idade,
           group3$renda_anual, method = "spearman")) 
@@ -476,7 +475,7 @@ ggplot(group3,
   geom_point() +
   geom_point(color= "indianred3") +
   geom_smooth(method = "lm")
-# uma correlaÁ„o negativa entre a renda e o empo de fidelidade
+# uma correla√ß√£o negativa entre a renda e o empo de fidelidade
 #####
 
-# Essa an·lise reforÁa a tese que a segementaÁ„o esta relacionada a idade e renda dos clientes
+# Essa an√°lise refor√ßa a tese que a segementa√ß√£o esta relacionada a idade e renda dos clientes
