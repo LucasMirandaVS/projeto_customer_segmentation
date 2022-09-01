@@ -10,8 +10,8 @@ library(psych)
 library(cowplot)
 
 # Importando os dados
-eventos_ofertas <- read_csv("C:/Users/Lucas/Desktop/Case - Numera/eventos_ofertas.csv")
-portfolio_ofertas <- read_csv("C:/Users/Lucas/Desktop/Case - Numera/portfolio_ofertas - portfolio_ofertas.csv")
+eventos_ofertas <- read_csv("C:/Users/Lucas/Desktop/eventos_ofertas.csv")
+portfolio_ofertas <- read_csv("C:/Users/Lucas/Desktop/portfolio_ofertas - portfolio_ofertas.csv")
 
 #######
 
@@ -24,7 +24,7 @@ lapply(eventos_ofertas,
        function(x) { length(which(is.na(x)))})
 # muitos valores faltando com valor, id_oferta e recompensa
 
-# Fatorando as variáveis da oferta
+# Fatorando as variÃ¡veis da oferta
 df_ofertas <- eventos_ofertas
 
 df_ofertas$id_oferta <- factor(df_ofertas$id_oferta,
@@ -56,8 +56,8 @@ df_ofertas$tipo_evento <- factor(df_ofertas$tipo_evento,
                                             "oferta conclu\xedda"),
                                  labels = c('oferta recebida',
                                             'oferta visualizada',
-                                            'transação',
-                                            'oferta concluída'))
+                                            'transaÃ§Ã£o',
+                                            'oferta concluÃ­da'))
 
 # Tirando a coluna index
 df_ofertas <- df_ofertas %>%
@@ -65,8 +65,8 @@ df_ofertas <- df_ofertas %>%
 
 summary(df_ofertas)
 
-#### Análise univariada
-### Variáveis categóricas
+#### AnÃ¡lise univariada
+### VariÃ¡veis categÃ³ricas
 # Tipo de oferta
 # bar plot das ofertas
 a = table(df_ofertas$id_oferta)
@@ -75,7 +75,7 @@ barplot(a, main="Tipos de oferta utilizados",
         xlab="Tipo de oferta",
         col = c('blue', 'red', 'yellow'))
 
-# A maior parte foi promoções de desconto e compre1, leve 2
+# A maior parte foi promoÃ§Ãµes de desconto e compre1, leve 2
 
 # tipo de evento
 # pie chart
@@ -84,30 +84,30 @@ df_ofertas %>%
   table() %>%
   pie(col = hcl.colors(length(table(df_ofertas$tipo_evento)),
                        "BluYl"))
-# A maior parte dos registros estpa relacionada a transações
-# Quase não hpa registro de ofertas concluídas
+# A maior parte dos registros estpa relacionada a transaÃ§Ãµes
+# Quase nÃ£o hpa registro de ofertas concluÃ­das
 
-## Variáveis Numéricas 
+## VariÃ¡veis NumÃ©ricas 
 # Valor pago
 # Histogramas
 hist(df_ofertas$valor,
      col= "blue",
-     main="Valores pagos nas transações",
+     main="Valores pagos nas transaÃ§Ãµes",
      xlab="Valor pago (em R$)",
      ylab="Frequencia",
      labels=TRUE) 
-# evidentemente a maior parte dos registros foi de transações baixas. 
-# entretanto alguns valores muito altos chamam atenção
+# evidentemente a maior parte dos registros foi de transaÃ§Ãµes baixas. 
+# entretanto alguns valores muito altos chamam atenÃ§Ã£o
 
 # Recompensa
 # boxplot 
 boxplot(df_ofertas$recompensa, horizontal = TRUE,
-        col = 'purple', main = 'Recompensas obtidas por promoção')
+        col = 'purple', main = 'Recompensas obtidas por promoÃ§Ã£o')
 
 # Histogramas
 hist(df_ofertas$recompensa,
      col= "blue",
-     main="Recompensas utilizadas nas transações",
+     main="Recompensas utilizadas nas transaÃ§Ãµes",
      xlab="Tipo de recompensa",
      ylab="Frequencia",
      labels=TRUE) 
@@ -115,11 +115,11 @@ hist(df_ofertas$recompensa,
 
 # Tempo decorrido 
 boxplot(df_ofertas$tempo_decorrido, horizontal = TRUE,
-        col = 'purple', main = 'Tempo para as transações')
+        col = 'purple', main = 'Tempo para as transaÃ§Ãµes')
 
 #####
 
-# Feature engineering - Avaliando os canais de oferta e sua duração
+# Feature engineering - Avaliando os canais de oferta e sua duraÃ§Ã£o
 #####
 ofertas <- eventos_ofertas
 
@@ -154,22 +154,22 @@ ofertas %>%
 
 # A maior parte das ofertas foi aproveitada quando disparada por web, mobile, social e email
 
-# Duração das promoções utilizadas
+# DuraÃ§Ã£o das promoÃ§Ãµes utilizadas
 # Histogramas
 hist(as.numeric(ofertas$duracao),
      col= "blue",
-     main="Duração das promoções mais utilizadas",
-     xlab="Dias de promoção",
+     main="DuraÃ§Ã£o das promoÃ§Ãµes mais utilizadas",
+     xlab="Dias de promoÃ§Ã£o",
      ylab="Frequencia",
      labels=TRUE) 
-# A maior parte das promoções utilizadas durava apenas um dia
+# A maior parte das promoÃ§Ãµes utilizadas durava apenas um dia
 
 # Histograma das valores minimos pagos pelos clientes
 hist(as.numeric(ofertas$val_minimo),
      col= "blue",
-     main="Valor minimo pago nas promoções pelos clientes",
+     main="Valor minimo pago nas promoÃ§Ãµes pelos clientes",
      xlab="Valor (em R$)",
      ylab="Frequencia",
      labels=TRUE) 
-# A maior parte das promoções usadas não exigia valor minimo
+# A maior parte das promoÃ§Ãµes usadas nÃ£o exigia valor minimo
 #####
