@@ -21,7 +21,7 @@ Dados demográficos dos clientes. Possui as seguintes colunas:
 
 A tabela dos clientes têm o seguinte formato:
 
-![image](https://user-images.githubusercontent.com/77032413/188335162-b35978b0-81a0-4b09-aa46-c94588d3144c.png)
+![image](https://user-images.githubusercontent.com/77032413/188335427-29d1201f-07e6-46b0-a047-7d5f590def36.png)
 
 #### Eventos_ofertas
 Base com registros de todos os eventos. Suas colunas são:
