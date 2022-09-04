@@ -19,15 +19,29 @@ Dados demográficos dos clientes. Possui as seguintes colunas:
 * Membro Desde: data em que o cliente criou uma conta
 * Renda Anual: renda anual fornecida pelo cliente.
 
+A tabela dos clientes têm o seguinte formato:
+
+![image](https://user-images.githubusercontent.com/77032413/188335162-b35978b0-81a0-4b09-aa46-c94588d3144c.png)
+
 #### Eventos_ofertas
 Base com registros de todos os eventos. Suas colunas são:
 * Cliente: código do cliente que executou aquele evento
 * Valor: contém informação do valor gasto na compra
 * id_oferta: código da oferta
 
+A tabela de ofertas tem o seguinte formato:
+
+![image](https://user-images.githubusercontent.com/77032413/188335332-c3189643-9ccf-4cc1-9caa-333d0db03e83.png)
+
 ## Análise Exploratória dos dados
 #### Analisando os Dados dos Clientes 
-Primeiro, foquei em analisar os dados preenchidos pelos clientes ao realizarem os cadastros. Através da análise exploratória foi possível identificar alguns dados interessantes sobre os clientes:
+Primeiro, foquei em analisar os dados preenchidos pelos clientes ao realizarem os cadastros. Os resultados das estatísticas descritivas são os que seguem:
+
+![image](https://user-images.githubusercontent.com/77032413/188335138-b2a15d9e-f76f-4d0c-afbf-cce2a0b8a9ad.png)
+
+ 
+Através da análise exploratória foi possível identificar alguns dados interessantes sobre os clientes:
+
 * A maior parte da amostra é constituída por homens, sendo 8484 registros para homens contra 6129 para mulheres. Além disso, haviam 212 registros como “outro”
 
 ![image](https://user-images.githubusercontent.com/77032413/187936195-4f196a06-002e-47e5-9d8a-3f7e6a9f5c57.png)
@@ -53,7 +67,11 @@ Outro fator que chamou atenção foi a presença de clientes que informavam idad
 Apesar da temakeria ter um enfoque em um publico com um poder aquisitivo mais elevado, essa quantidade alta de pessoas com idade avançada e rendimentos elevados é inconsistente. Esses fatos corroboram a hipótese que os dados de clientes podem estar enviesados: alguns clientes podem não ter preenchido corretamente de forma acidental ou deliberada.
 
 #### Registros de ofertas
-Uma vez analisada a tabela de clientes, voltei a análise para os registros de ofertas realizados pela empresa. Aqui o foco foi averiguar quais eram as promoções mais utilizadas e quais os canais mais comuns em que os clientes receberam as ofertas. Os principais resultados encontrados nesta etapa foram os seguintes:
+Uma vez analisada a tabela de clientes, voltei a análise para os registros de ofertas realizados pela empresa. Aqui o foco foi averiguar quais eram as promoções mais utilizadas e quais os canais mais comuns em que os clientes receberam as ofertas. Após realizar uma etapa de limpeza dos dados, parti para analisar as estatísticas descritivas da tabela:
+
+![image](https://user-images.githubusercontent.com/77032413/188335219-bc897d6c-4524-449a-a9b1-debf27062b21.png)
+
+Os principais resultados encontrados nesta etapa foram os seguintes:
 
 * A oferta mais utilizada era a de “compre 1, leve 2’, seguida por promoções de descontos.
 
